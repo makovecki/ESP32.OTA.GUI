@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MainApp", "MainApp\MainApp.csproj", "{F71CE6D7-A0DA-43B1-B1D5-CADE6B6F9483}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OTA.GUI", "OTA.GUI\OTA.GUI.csproj", "{C6BEB214-6326-499D-9E83-E8B4DEF70414}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsole", "TestConsole\TestConsole.csproj", "{8EA7C9A3-A634-496A-88FE-4418EA0AE97D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F71CE6D7-A0DA-43B1-B1D5-CADE6B6F9483}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F71CE6D7-A0DA-43B1-B1D5-CADE6B6F9483}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F71CE6D7-A0DA-43B1-B1D5-CADE6B6F9483}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F71CE6D7-A0DA-43B1-B1D5-CADE6B6F9483}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6BEB214-6326-499D-9E83-E8B4DEF70414}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6BEB214-6326-499D-9E83-E8B4DEF70414}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6BEB214-6326-499D-9E83-E8B4DEF70414}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6BEB214-6326-499D-9E83-E8B4DEF70414}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EA7C9A3-A634-496A-88FE-4418EA0AE97D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EA7C9A3-A634-496A-88FE-4418EA0AE97D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EA7C9A3-A634-496A-88FE-4418EA0AE97D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EA7C9A3-A634-496A-88FE-4418EA0AE97D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ABE079E0-0B3E-415A-9D5E-ECCEC54D9DE4}
+	EndGlobalSection
+EndGlobal

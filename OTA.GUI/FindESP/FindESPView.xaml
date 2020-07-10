@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="OTA.GUI.FindESP.FindESPView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:OTA.GUI.FindESP" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:uicore="http://makovecki.com/uicore" d:DesignHeight="450" d:DesignWidth="800"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <uicore:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+    </UserControl.Resources>
+    <Grid VerticalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="150" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <TextBlock HorizontalAlignment="Center" FontSize="16" Opacity="0.7" Text="Found ESPs on network:" />
+        <ScrollViewer Grid.Row="1" Margin="10" HorizontalAlignment="Center"
+                      VerticalAlignment="Center" VerticalScrollBarVisibility="Auto">
+            <ItemsControl ItemsSource="{Binding FoundEsps}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <uicore:ButtonMenuControl Command="{Binding DataContext.ConnectCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}" CommandParameter="{Binding}">
+                                <Border Background="Gray" Opacity="0.9">
+                                    <Path Margin="3" Data="M11.000003,10.999997L11.000003,20.999997 21.000003,20.999997 21.000003,10.999997z M9.0000027,8.9999969L23.000003,8.9999969 23.000003,22.999997 9.0000027,22.999997z M6.0000002,5.9999993L6.0000002,25.999999 26.000001,25.999999 26.000001,5.9999993z M6.0000002,0L7.9999998,0 7.9999998,3.9999995 15,3.9999995 15,0 17,0 17,3.9999995 24,3.9999995 24,0 26.000001,0 26.000001,3.9999995 28.000001,3.9999995 28.000001,7.9999998 32.000001,7.9999998 32.000001,9.9999993 28.000001,9.9999993 28.000001,15 32.000001,15 32.000001,17 28.000001,17 28.000001,22 32.000001,22 32.000001,24 28.000001,24 28.000001,27.999999 26.000001,27.999999 26.000001,31.999999 24,31.999999 24,27.999999 17,27.999999 17,31.999999 15,31.999999 15,27.999999 8.0000002,27.999999 8.0000002,31.999999 6.0000002,31.999999 6.0000002,27.999999 4,27.999999 4,24 0,24 0,22 4,22 4,17 0,17 0,15 4,15 4,9.9999999 0,9.9999999 0,7.9999998 4,7.9999998 4,3.9999995 6.0000002,3.9999995z" Fill="#FFFFFFFF" Stretch="Uniform" />
+                                </Border>
+                            </uicore:ButtonMenuControl>
+                            <StackPanel Grid.Column="1" Margin="10,3">
+                                <uicore:ButtonMenuControl Command="{Binding DataContext.ConnectCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}" CommandParameter="{Binding}" FontSize="12">
+                                    <TextBlock>
+                                        <Run Text="Connect to " /><Run FontWeight="Bold" Text="{Binding Name, Mode=OneWay}" /><Run Text="..." />
+                                    </TextBlock>
+                                </uicore:ButtonMenuControl>
+                                <TextBlock FontSize="10" Opacity="0.5">
+                                    <Run Text="{Binding Ip, Mode=OneWay}" /><Run Text=":" /><Run Text="{Binding Port, Mode=OneWay}" />
+                                </TextBlock>
+                            </StackPanel>
+                        </Grid>
+
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+        <TextBlock Grid.Row="2" HorizontalAlignment="Center" Opacity="0.5"
+                   Text="Searching ..."
+                   Visibility="{Binding IsSearching, Converter={StaticResource BoolToVisibilityConverter}}" />
+        <uicore:ProgressBarControl Grid.Row="3" IsIndeterminate="True" Visibility="{Binding IsSearching, Converter={StaticResource BoolToVisibilityConverter}}" />
+
+        <Button Grid.Row="4" HorizontalAlignment="Center"
+                Command="{Binding CancelCommand}"
+                Content="Cancel"
+                Visibility="{Binding IsSearching, Converter={StaticResource BoolToVisibilityConverter}}" />
+        <Button Grid.Row="4" HorizontalAlignment="Center"
+                Command="{Binding StartSearchCommand}"
+                Content="Start searching ..."
+                Visibility="{Binding IsSearching, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter='inverse'}" />
+    </Grid>
+</UserControl>

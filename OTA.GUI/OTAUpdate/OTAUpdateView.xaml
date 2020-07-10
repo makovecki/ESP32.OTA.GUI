@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="OTA.GUI.OTAUpdate.OTAUpdateView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:OTA.GUI.OTAUpdate" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:uicore="http://makovecki.com/uicore" d:DesignHeight="450" d:DesignWidth="800"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <uicore:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+    </UserControl.Resources>
+    <Grid>
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <TextBlock Text="Select bin file to upload" />
+            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                <TextBox Width="400" VerticalContentAlignment="Center" IsEnabled="{Binding IsEnabled}" Text="{Binding FileName}" />
+                <Button Command="{Binding BrowseCommand}" Content="Browse ..." IsEnabled="{Binding IsEnabled}" />
+            </StackPanel>
+            <StackPanel Grid.Row="3" Margin="0,3" Orientation="Horizontal">
+                <CheckBox IsChecked="{Binding Rebuild}" IsEnabled="{Binding IsEnabled}" />
+                <TextBlock Margin="5,0" Text="Rebuild" />
+            </StackPanel>
+            <ProgressBar Grid.Row="4" Margin="10,20,10,10" Maximum="100"
+                         Minimum="0"
+                         Visibility="{Binding IsUpdating, Converter={StaticResource BoolToVisibilityConverter}}"
+                         Value="{Binding Percent}" />
+            <TextBlock Grid.Row="4" HorizontalAlignment="Center" Text="Updating ..." Visibility="{Binding IsUpdating, Converter={StaticResource BoolToVisibilityConverter}}" />
+            <Button Grid.Row="5" Width="100" Margin="0,3"
+                    HorizontalAlignment="Center"
+                    Command="{Binding UpdateCommand}"
+                    Content="Update"
+                    Visibility="{Binding IsUpdating, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter='inverse'}" />
+            <Button Grid.Row="5" Width="100" Margin="0,3"
+                    HorizontalAlignment="Center"
+                    Command="{Binding CancelCommand}"
+                    Content="Cancel"
+                    Visibility="{Binding IsUpdating, Converter={StaticResource BoolToVisibilityConverter}}" />
+
+        </Grid>
+    </Grid>
+</UserControl>
