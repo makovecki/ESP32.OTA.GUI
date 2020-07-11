@@ -4,6 +4,7 @@ using OTA.GUI.Services.Model;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -16,10 +17,10 @@ namespace OTA.GUI.OTAUpdate
     public class OTAUpdateViewModel : Observable, IViewModel
     {
         private readonly IESPMessageService messageService;
-        private readonly IHTTPSServer httpsServer;
+        private readonly IHTTPServer httpsServer;
         private readonly ESP esp;
         private readonly IDispatcher dispatcher;
-        public OTAUpdateViewModel(ESPEcho esp, IESPMessageService messageService, IHTTPSServer httpsServer, IDispatcher dispatcher)
+        public OTAUpdateViewModel(ESPEcho esp, IESPMessageService messageService, IHTTPServer httpsServer, IDispatcher dispatcher)
         {
             this.esp = esp;
             this.messageService = messageService;
@@ -42,7 +43,7 @@ namespace OTA.GUI.OTAUpdate
 
         private void ProcessMessage(ESP message)
         {
-            //httpsServer.Stop();
+            dispatcher.BeginInvoke(()=> throw new Exception(System.Text.Encoding.Default.GetString(message.Buffer.Skip(3).ToArray())));
         }
 
         private async void Update()
@@ -65,7 +66,7 @@ namespace OTA.GUI.OTAUpdate
                     //p.WaitForExit();
                     //string output = p.StandardOutput.ReadToEnd();
                 }
-                messageService.StartOTAUpdate(Path.GetFileName(FileName), httpsServer.Port, esp,$"https://Boris1:{httpsServer.Port}/");
+                messageService.StartOTAUpdate(Path.GetFileName(FileName), httpsServer.Port, esp,$"http://{System.Net.Dns.GetHostName()}:{httpsServer.Port}/");
                 await taskServer;
                 Cancel();
 

@@ -30,7 +30,7 @@ namespace MainApp
                 RegisterComponents = (ioc) =>
                 {
                     ioc.RegisterType<ESPMessageService>().As<IESPMessageService>(true);
-                    ioc.RegisterType<HTTPSServer>().As<IHTTPSServer>();
+                    ioc.RegisterType<HTTPServer>().As<IHTTPServer>();
                 }
             };
 

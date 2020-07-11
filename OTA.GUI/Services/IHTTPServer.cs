@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace OTA.GUI.Services
 {
-    public interface IHTTPSServer
+    public interface IHTTPServer
     {
         int Port { get; }
 
