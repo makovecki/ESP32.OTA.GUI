@@ -2,18 +2,28 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
     <Nullable>enable</Nullable>
  
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="UICore" Version="1.0.3" />
+    <PackageReference Include="Autofac" Version="6.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\OTA.GUI\OTA.GUI.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="UI.Core">
+      <HintPath>..\..\..\..\projekti\Kraken\Kraken\UI.Core\bin\Debug\netcoreapp3.1\UI.Core.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

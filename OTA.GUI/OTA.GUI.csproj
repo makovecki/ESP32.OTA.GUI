@@ -1,13 +1,15 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="UICore" Version="1.0.3" />
+    <Reference Include="UI.Core">
+      <HintPath>..\..\..\..\projekti\Kraken\Kraken\UI.Core\bin\Debug\netcoreapp3.1\UI.Core.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>

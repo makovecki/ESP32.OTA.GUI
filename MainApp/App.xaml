@@ -2,7 +2,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/UICore;component/Themes/Styles/Metropolis.xaml" />
+                <ResourceDictionary Source="/UI.Core;component/Themes/Styles/Metropolis.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

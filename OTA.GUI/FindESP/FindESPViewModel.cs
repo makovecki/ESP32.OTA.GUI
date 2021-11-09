@@ -8,9 +8,9 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Windows.Input;
-using UICore.Dispatcher;
-using UICore.Navigation;
-using UICore.Presentation;
+using UI.Core.Dispatcher;
+using UI.Core.Navigation;
+using UI.Core.Presentation;
 
 namespace OTA.GUI.FindESP
 {

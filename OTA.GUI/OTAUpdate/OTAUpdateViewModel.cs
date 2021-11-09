@@ -8,9 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using UICore.Dispatcher;
-using UICore.Navigation;
-using UICore.Presentation;
+using UI.Core.Dispatcher;
+using UI.Core.Navigation;
+using UI.Core.Presentation;
 
 namespace OTA.GUI.OTAUpdate
 {
@@ -66,7 +66,7 @@ namespace OTA.GUI.OTAUpdate
                     //p.WaitForExit();
                     //string output = p.StandardOutput.ReadToEnd();
                 }
-                messageService.StartOTAUpdate(Path.GetFileName(FileName), httpsServer.Port, esp,$"http://{System.Net.Dns.GetHostName()}:{httpsServer.Port}/");
+                messageService.StartOTAUpdate(Path.GetFileName(FileName), httpsServer.Port, esp,$"http://192.168.1.2:{httpsServer.Port}/");//{System.Net.Dns.GetHostName()}
                 await taskServer;
                 Cancel();
 

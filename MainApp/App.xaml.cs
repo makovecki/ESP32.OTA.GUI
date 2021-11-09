@@ -7,11 +7,11 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-using UICore.App;
-using UICore.App.Themes;
-using UICore.IoC;
-using UICore.MainWindow;
-using UICore.Navigation;
+using UI.Core.App;
+using UI.Core.App.Themes;
+using UI.Core.IoC;
+using UI.Core.MainWindow;
+using UI.Core.Navigation;
 
 namespace MainApp
 {
